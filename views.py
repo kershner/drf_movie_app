@@ -15,4 +15,4 @@ def home(request):
         'recent_movies': recent_movies,
         'recent_people': recent_people
     }
-    return render(request, 'home.html', ctx)
+    return render(request, 'home/home.html', ctx)

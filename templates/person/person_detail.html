@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+<div class="main-widget">
+    <h3 class="widget-title">{{ person.name }}</h3>
+    <div class="widget-body">
+        <p>{{ person.bio }}</p>
+    </div>
+</div>
+{% endblock %}

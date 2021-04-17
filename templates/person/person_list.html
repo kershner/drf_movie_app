@@ -2,10 +2,10 @@
 
 {% block main_content %}
 <div class="main-widget">
-    <h3 class="widget-title">All Movies</h3>
+    <h3 class="widget-title">All People</h3>
     <div class="widget-body">
-    {% for movie in movie_list %}
-        {% include 'movie/movie_container.html' %}
+    {% for person in person_list %}
+        {% include 'person/person_container.html' %}
     {% endfor %}
     </div>
 
