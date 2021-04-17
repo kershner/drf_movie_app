@@ -120,9 +120,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, '{}/static'.format(PROJECT_NAME))
+STATIC_ROOT = os.path.join(BASE_DIR, '{}/static/assets'.format(PROJECT_NAME))
 MEDIA_ROOT = os.path.join(BASE_DIR, '{}/media'.format(PROJECT_NAME))
-STATIC_URL = '/static/'
+STATIC_URL = '/static/assets/'
+STATICFILES_DIRS = [
+    ('sass', BASE_DIR / '{}/static/sass'.format(PROJECT_NAME)),
+    ('js', BASE_DIR / '{}/static/js'.format(PROJECT_NAME))
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
