@@ -107,44 +107,45 @@ body {
   text-align: center;
 }
 
-.movie-detail-container {
+.detail-container {
   padding: 0.5em 0;
 }
-.movie-detail-container .movie-detail-header {
+.detail-container .detail-header {
   display: flex;
 }
-.movie-detail-container .movie-detail-header .movie-detail-poster {
+.detail-container .detail-header .detail-poster {
   max-width: 15em;
 }
-.movie-detail-container .movie-detail-header .movie-detail-poster img {
+.detail-container .detail-header .detail-poster img {
   width: 100%;
 }
-.movie-detail-container .movie-detail-header .movie-detail-header-info {
+.detail-container .detail-header .detail-header-info {
   padding: 0 0.5em;
+  flex-shrink: 2;
 }
-.movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title .movie-detail-header-title-row {
+.detail-container .detail-header .detail-header-info .detail-header-title .detail-header-title-row {
   display: flex;
   align-items: center;
   margin-bottom: 0.5em;
 }
-.movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title .movie-detail-header-title-row ul {
+.detail-container .detail-header .detail-header-info .detail-header-title .detail-header-title-row ul {
   padding: 0;
   margin: 0;
 }
-.movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title .movie-detail-header-title-row ul li {
+.detail-container .detail-header .detail-header-info .detail-header-title .detail-header-title-row ul li {
   display: inline;
 }
-.movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title .header-title {
+.detail-container .detail-header .detail-header-info .detail-header-title .header-title {
   font-weight: bold;
   font-size: 1.5em;
 }
-.movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title .header-date {
+.detail-container .detail-header .detail-header-info .detail-header-title .header-date {
   margin-left: 0.25em;
 }
-.movie-detail-container .movie-detail-header-overview h4 {
+.detail-container .detail-header-overview h4 {
   margin: 0.25em auto;
 }
-.movie-detail-container .movie-detail-header-overview p {
+.detail-container .detail-header-overview p {
   margin: 0.25em auto;
 }
 

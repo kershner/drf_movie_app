@@ -2,9 +2,46 @@
 
 {% block main_content %}
 <div class="main-widget">
-    <h3 class="widget-title">{{ person.name }}</h3>
     <div class="widget-body">
-        <p>{{ person.bio }}</p>
+        <div class="detail-container">
+            <div class="detail-header">
+                <div class="detail-poster">
+                    <img src="{{ person.get_full_image_url }}">
+                </div>
+
+                <div class="detail-header-info">
+                    <div class="detail-header-title">
+                        <div class="detail-header-title-row">
+                            <div class="header-title">{{ person.name}}</div>
+                        </div>
+
+                        <div class="detail-header-title-row">
+                            <ul>
+                                <li>{{ person.birthday|date:'m/d/Y' }}</li>
+                                <li>&bull; {{ person.place_of_birth }}</li>
+                            </ul>
+                        </div>
+
+{#                        <div class="detail-header-title-row">#}
+{#                            <!-- KNOWN FOR -->#}
+{#                        </div>#}
+                    </div>
+
+                    <div class="detail-header-overview">
+                        <h4>Biography</h4>
+                        <p>{{ person.bio }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-body">
+
+            </div>
+        </div>
     </div>
 </div>
+
+<p>
+    <a href="{{request.META.HTTP_REFERER}}">Back</a>
+</p>
 {% endblock %}

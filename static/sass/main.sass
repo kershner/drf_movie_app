@@ -98,21 +98,22 @@ body
   margin: .5em auto
   text-align: center
 
-.movie-detail-container
+.detail-container
   padding: .5em 0
-  .movie-detail-header
+  .detail-header
     display: flex
 
-    .movie-detail-poster
+    .detail-poster
       max-width: 15em
       img
         width: 100%
 
-    .movie-detail-header-info
+    .detail-header-info
       padding: 0 0.5em
+      flex-shrink: 2
 
-      .movie-detail-header-title
-        .movie-detail-header-title-row
+      .detail-header-title
+        .detail-header-title-row
           display: flex
           align-items: center
           margin-bottom: 0.5em
@@ -128,7 +129,7 @@ body
         .header-date
           margin-left: .25em
 
-  .movie-detail-header-overview
+  .detail-header-overview
     h4
       margin: 0.25em auto
     p
