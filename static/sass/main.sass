@@ -1,0 +1,95 @@
+$black: #161616
+
+%box-shadow
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2)
+%border-radius
+  border-radius: 0.2em
+body
+
+  color: $black
+  padding: 0
+  margin: 0
+
+.main-container
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+
+  .nav
+    display: flex
+    justify-content: space-between
+    padding: 1em
+
+    @extend %box-shadow
+
+    .nav-logo
+      font-weight: bold
+
+    .nav-links
+      a
+        margin: 0 .5em
+
+  .body
+    margin: 0 auto
+    width: 100%
+    max-width: 60em
+    flex: 1
+
+    .body-inner
+      display: flex
+      justify-content: space-around
+      flex-wrap: wrap
+
+  .footer
+    display: flex
+    justify-content: space-evenly
+    margin: 0 auto
+    margin-bottom: 2em
+    max-width: 70em
+    width: 100%
+
+    ul
+      list-style: none
+
+      li:first-of-type
+        font-size: 0.8em
+        font-weight: bold
+
+      li
+        margin: .25em 0
+        a
+          margin-left: 1em
+          text-decoration: none
+
+.main-widget
+  display: inline-flex
+  flex-direction: column
+  margin-top: 1em
+  padding: 0.25em 0.5em
+  @extend %box-shadow
+  @extend %border-radius
+
+  .widget-title
+    display: block
+    margin: 0
+    padding: 0
+
+  .widget-body
+    display: flex
+    flex-wrap: wrap
+    flex: 1
+
+  .more-link
+    text-align: right
+
+.movie-container
+  margin: .25em
+  width: 5em
+  a
+    text-decoration: none
+  .poster
+    max-width: 5em
+    img
+      width: 100%
+  .movie-title
+    font-size: 0.8em
