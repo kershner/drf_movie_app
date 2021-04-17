@@ -5,10 +5,11 @@ $black: #161616
 %border-radius
   border-radius: 0.2em
 body
-
   color: $black
   padding: 0
   margin: 0
+a
+  text-decoration: none
 
 .main-container
   display: flex
@@ -41,25 +42,35 @@ body
     flex-wrap: wrap
 
 .footer
-  display: flex
-  justify-content: space-evenly
   margin: 0 auto
   margin-bottom: 2em
   max-width: 70em
   width: 100%
 
-  ul
-    list-style: none
+  .footer-links
+    display: flex
+    justify-content: space-evenly
 
-    li:first-of-type
-      font-size: 0.8em
-      font-weight: bold
+    ul
+      padding-left: 0
+      list-style: none
 
-    li
-      margin: .25em 0
-      a
-        margin-left: 1em
-        text-decoration: none
+      li:first-of-type
+        font-weight: bold
+
+      li
+        margin: .25em 0
+        a
+          margin-left: 0.5em
+
+  .footer-extra
+    text-align: center
+
+    .footer-img
+      margin: 0 auto
+      max-width: 5em
+      img
+        width: 100%
 
 .main-widget
   display: inline-flex
@@ -126,8 +137,6 @@ body
         .header-title
           font-weight: bold
           font-size: 1.5em
-        .header-date
-          margin-left: .25em
 
   .detail-header-overview
     h4
