@@ -126,7 +126,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '{}/media'.format(PROJECT_NAME))
 STATIC_URL = '/static/assets/'
 STATICFILES_DIRS = [
     ('sass', BASE_DIR / '{}/static/sass'.format(PROJECT_NAME)),
-    ('js', BASE_DIR / '{}/static/js'.format(PROJECT_NAME))
+    ('js', BASE_DIR / '{}/static/js'.format(PROJECT_NAME)),
+    ('img', BASE_DIR / '{}/static/img'.format(PROJECT_NAME))
 ]
 
 # Default primary key field type
