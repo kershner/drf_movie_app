@@ -3,3 +3,4 @@ parameters.json
 apps/person/migrations/
 apps/movie/migrations/
 __init__.py
+static/assets/

@@ -16,6 +16,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+PROJECT_NAME = 'movie_app'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -37,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'movie_app.apps.movie',
-    'movie_app.apps.person'
+    '{}.apps.movie'.format(PROJECT_NAME),
+    '{}.apps.person'.format(PROJECT_NAME)
 ]
 
 MIDDLEWARE = [
@@ -51,9 +52,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'movie_app.urls'
+ROOT_URLCONF = '{}.urls'.format(PROJECT_NAME)
 
-TEMPLATE_PATH = os.path.join(BASE_DIR, 'movie_app/templates')
+TEMPLATE_PATH = os.path.join(BASE_DIR, '{}/templates'.format(PROJECT_NAME))
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -70,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'movie_app.wsgi.application'
+WSGI_APPLICATION = '{}.wsgi.application'.format(PROJECT_NAME)
 
 
 # Database
@@ -119,14 +120,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, '{}/static/assets'.format(PROJECT_NAME))
+MEDIA_ROOT = os.path.join(BASE_DIR, '{}/media'.format(PROJECT_NAME))
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'movie_app/static'),
+    os.path.join(BASE_DIR, '{}/static'.format(PROJECT_NAME)),
 ]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # TMDB
