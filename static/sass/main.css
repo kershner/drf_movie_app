@@ -160,10 +160,11 @@ a {
 .detail-container .detail-header .detail-header-overview p {
   margin: 0.25em auto;
 }
-.detail-container .detail-body .filmography-timeline h3 {
+.detail-container .detail-body h3 {
   margin: 0.25em auto;
 }
-.detail-container .detail-body .filmography-timeline .filmography-row {
+.detail-container .detail-body .filmography-timeline .filmography-row,
+.detail-container .detail-body .filmography-timeline .filmography-row a {
   display: flex;
 }
 .detail-container .detail-body .filmography-timeline .filmography-year {
@@ -174,6 +175,26 @@ a {
 }
 .detail-container .detail-body .filmography-timeline .filmography-title-wrapper .filmography-role {
   margin-left: 0.25em;
+}
+.detail-container .detail-body .cast-wrapper .cast-row a {
+  display: flex;
+}
+.detail-container .detail-body .cast-wrapper .cast-image {
+  max-width: 3em;
+}
+.detail-container .detail-body .cast-wrapper .cast-image img {
+  width: 100%;
+}
+.detail-container .detail-body .cast-wrapper .cast-info {
+  margin-left: 0.5em;
+  color: #161616;
+}
+.detail-container .detail-body .cast-wrapper .cast-info .cast-name {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.detail-container .detail-body .cast-wrapper .cast-info .cast-role {
+  font-size: 1em;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -37,7 +37,24 @@
             </div>
 
             <div class="detail-body">
+                <div class="cast-wrapper">
+                    <h3>Cast</h3>
 
+                    {% for movie_credit in movie.get_cast %}
+                    <div class="cast-row">
+                        <a href="{% url 'person' pk=movie_credit.person.id %}">
+                            <div class="cast-image">
+                                <img src="{{ movie_credit.person.get_small_image_url }}">
+                            </div>
+
+                            <div class="cast-info">
+                                <div class="cast-name">{{ movie_credit.person.name }}</div>
+                                <div class="cast-role">{{ movie_credit.role }}</div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

@@ -23,17 +23,18 @@ class Command(BaseCommand):
             response = util.tmdb_request(endpoint=endpoint)
             cast_list = response.json()['cast']
             for item in cast_list:
-                print('Saving: {} - {}'.format(item['original_title'], item['character']))
-                existing_movie = Movie.objects.filter(title=item['original_title']).first()
-                movie_credit, created = MovieCredit.objects.get_or_create(tmdb_id=item['id'])
-                movie_credit.movie = existing_movie
-                movie_credit.person = person
-                movie_credit.movie_title = item['original_title']
-                if 'release_date' in item:
-                    try:
-                        movie_credit.release_date = datetime.strptime(item['release_date'], '%Y-%m-%d')
-                    except ValueError as e:
-                        print('{} does not match format: %Y-%m-%d'.format(item['release_date']))
-                movie_credit.role = item['character']
-                movie_credit.tmdb_image_path = item['poster_path']
-                movie_credit.save()
+                if 'release_date' in item:  # Not pulling unreleased movies
+                    print('Saving: {} - {}'.format(item['original_title'], item['character']))
+                    existing_movie = Movie.objects.filter(title=item['original_title']).first()
+                    movie_credit, created = MovieCredit.objects.get_or_create(tmdb_id=item['id'])
+                    movie_credit.movie = existing_movie
+                    movie_credit.person = person
+                    movie_credit.movie_title = item['original_title']
+                    if 'release_date' in item:
+                        try:
+                            movie_credit.release_date = datetime.strptime(item['release_date'], '%Y-%m-%d')
+                        except ValueError as e:
+                            print('{} does not match format: %Y-%m-%d'.format(item['release_date']))
+                    movie_credit.role = item['character']
+                    movie_credit.tmdb_image_path = item['poster_path']
+                    movie_credit.save()

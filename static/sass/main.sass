@@ -145,11 +145,12 @@ a
         margin: 0.25em auto
 
   .detail-body
-    .filmography-timeline
-      h3
-        margin: .25em auto
+    h3
+      margin: .25em auto
 
-      .filmography-row
+    .filmography-timeline
+      .filmography-row,
+      .filmography-row a
         display: flex
 
       .filmography-year
@@ -159,3 +160,23 @@ a
         .filmography-title
         .filmography-role
           margin-left: 0.25em
+
+    .cast-wrapper
+      .cast-row
+        a
+          display: flex
+
+      .cast-image
+        max-width: 3em
+        img
+          width: 100%
+
+      .cast-info
+        margin-left: 0.5em
+        color: $black
+        .cast-name
+          font-size: 1.2em
+          font-weight: bold
+        .cast-role
+          font-size: 1em
+

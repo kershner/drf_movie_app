@@ -1,5 +1,6 @@
 from movie_app.apps.movie_credit.models import MovieCredit
 from django.utils import timezone
+from django.db.models import Q
 from django.contrib import admin
 from django.conf import settings
 from django.db import models
@@ -28,8 +29,8 @@ class Movie(models.Model):
     def get_medium_image_url(self):
         return self.get_full_image_url(size='w350')
 
-    def get_movie_credits(self):
-        movie_credits = MovieCredit.objects.filter(movie=self).all()
+    def get_cast(self):
+        movie_credits = MovieCredit.objects.filter(Q(movie=self) | Q(movie_title=self.title)).order_by('-release_date').all()
         return movie_credits
 
 

@@ -27,10 +27,6 @@
                         <div class="detail-header-title-row">
                             <a href="{% url 'person-detail' pk=person.id %}">API Link</a>
                         </div>
-
-{#                        <div class="detail-header-title-row">#}
-{#                            <!-- KNOWN FOR -->#}
-{#                        </div>#}
                     </div>
 
                     <div class="detail-header-overview">
@@ -46,11 +42,17 @@
 
                     {% for movie_credit in person.get_movie_credits %}
                     <div class="filmography-row">
+                        {% if movie_credit.movie %}
+                        <a href="{% url 'movie' pk=movie_credit.movie.id %}">
+                        {% endif %}
                         <div class="filmography-year">{{ movie_credit.release_date|date:'Y' }}</div>
                         <div class="filmography-title-wrapper">
                             <div class="filmography-title">{{ movie_credit.movie_title }}</div>
                             <div class="filmography-role">as {{ movie_credit.role }}</div>
                         </div>
+                        {% if movie_credit.movie %}
+                        </a>
+                        {% endif %}
                     </div>
                     {% endfor %}
                 </div>

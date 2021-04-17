@@ -29,7 +29,7 @@ class Person(models.Model):
         return self.get_full_image_url(size='w400')
 
     def get_movie_credits(self):
-        movie_credits = MovieCredit.objects.filter(person=self).all()
+        movie_credits = MovieCredit.objects.filter(person=self).order_by('-release_date').all()
         return movie_credits
 
 
