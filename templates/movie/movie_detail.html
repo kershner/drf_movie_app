@@ -22,6 +22,10 @@
                                 <li>&bull; {{ movie.runtime }} minutes</li>
                             </ul>
                         </div>
+
+                        <div class="detail-header-title-row">
+                            <a href="{% url 'movie-detail' pk=movie.id %}">API Link</a>
+                        </div>
                     </div>
 
                     <div class="detail-header-overview">
