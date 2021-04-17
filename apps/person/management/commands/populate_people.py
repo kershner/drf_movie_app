@@ -10,13 +10,13 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         # Add some people
-        total_people_to_request = 48
+        total_people_to_request = 1000
         tmdb_ids = self.get_popular_person_ids(num_persons=total_people_to_request)
         count = 1
         total = len(tmdb_ids)
 
         for tmdb_id in tmdb_ids:
-            print('\nRequesting person ID: {} - {} of {}...'.format(tmdb_id, count, total))
+            print('Requesting person ID: {} - {} of {}...'.format(tmdb_id, count, total))
             count += 1
             endpoint = '{}/{}'.format(self.base_endpoint, tmdb_id)
             response = util.tmdb_request(endpoint=endpoint)
@@ -26,9 +26,15 @@ class Command(BaseCommand):
             person.bio = person_json['biography']
             person.place_of_birth = person_json['place_of_birth']
             if person_json['birthday']:
-                person.birthday = datetime.strptime(person_json['birthday'], '%Y-%m-%d')
+                try:
+                    person.birthday = datetime.strptime(person_json['birthday'], '%Y-%m-%d')
+                except ValueError as e:
+                    print('{} does not match format %Y-%m-%d'.format(person_json['birthday']))
             if person_json['deathday']:
-                person.deathday = datetime.strptime(person_json['deathday'], '%Y-%m-%d')
+                try:
+                    person.deathday = datetime.strptime(person_json['deathday'], '%Y-%m-%d')
+                except ValueError as e:
+                    print('{} does not match format %Y-%m-%d'.format(person_json['deathday']))
             person.tmdb_id = person_json['id']
             person.tmdb_image_path = person_json['profile_path']
             person.save()

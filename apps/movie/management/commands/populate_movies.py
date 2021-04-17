@@ -10,26 +10,27 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         # Add some movies
-        total_movies_to_request = 48
+        total_movies_to_request = 1000
         tmdb_ids = self.get_popular_movie_ids(num_movies=total_movies_to_request)
 
         count = 1
         total = len(tmdb_ids)
         for tmdb_id in tmdb_ids:
-            print('\nRequesting movie ID: {} - {} of {}...'.format(tmdb_id, count, total))
+            print('Requesting movie ID: {} - {} of {}...'.format(tmdb_id, count, total))
             count += 1
             endpoint = '{}/{}'.format(self.base_endpoint, tmdb_id)
             response = util.tmdb_request(endpoint=endpoint)
             movie_json = response.json()
-            # print(json.dumps(movie_json, indent=2))
-            print(movie_json['original_title'])
-
             movie, created = Movie.objects.get_or_create(tmdb_id=tmdb_id)
             movie.title = movie_json['original_title']
             movie.overview = movie_json['overview']
             movie.runtime = movie_json['runtime']
             movie.budget = movie_json['budget']
-            movie.release_date = datetime.strptime(movie_json['release_date'], '%Y-%m-%d')
+
+            try:
+                movie.release_date = datetime.strptime(movie_json['release_date'], '%Y-%m-%d')
+            except ValueError as e:
+                print('{} does not match format %Y-%m-%d'.format(movie_json['release_date']))
             movie.tmdb_id = movie_json['id']
             movie.tmdb_image_path = movie_json['poster_path']
             movie.save()

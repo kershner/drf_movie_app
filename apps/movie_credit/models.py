@@ -8,6 +8,8 @@ class MovieCredit(models.Model):
     updated_at = models.DateTimeField(auto_now=True, editable=False)
     person = models.ForeignKey('person.Person', on_delete=models.SET_NULL, blank=True, null=True)
     movie = models.ForeignKey('movie.Movie', on_delete=models.SET_NULL, blank=True, null=True)
+    movie_title = models.CharField(max_length=255, null=True, blank=True)
+    release_date = models.DateTimeField(null=True, blank=True)
     role = models.CharField(max_length=255, null=True, blank=True)
     tmdb_id = models.IntegerField(null=True, blank=True)
     tmdb_image_path = models.CharField(max_length=255, null=True, blank=True)
@@ -19,9 +21,9 @@ class MovieCredit(models.Model):
 @admin.register(MovieCredit)
 class MovieCreditAdmin(admin.ModelAdmin):
     list_per_page = 100
-    list_display = ('id', 'created_at', 'person', 'movie', 'role')
-    list_display_links = ['id', 'created_at', 'person', 'movie', 'role']
-    search_fields = ['person__name', 'movie__title', 'role']
+    list_display = ('id', 'created_at', 'person', 'movie_title', 'role')
+    list_display_links = ['id', 'created_at', 'person', 'movie_title', 'role']
+    search_fields = ['person__name', 'movie_title', 'movie__title', 'role']
     autocomplete_fields = ['person', 'movie']
     save_on_top = True
     show_full_result_count = True
