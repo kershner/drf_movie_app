@@ -4,3 +4,5 @@ apps/person/migrations/
 apps/movie/migrations/
 __init__.py
 static/assets/
+static/admin/
+static/rest_framework/
