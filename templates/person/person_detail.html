@@ -45,10 +45,22 @@
                         {% if movie_credit.movie %}
                         <a href="{% url 'movie' pk=movie_credit.movie.id %}">
                         {% endif %}
-                        <div class="filmography-year">{{ movie_credit.release_date|date:'Y' }}</div>
+                        <div class="filmography-image">
+                            {% if movie_credit.get_small_image_url %}
+                            <img class="square-crop" src="{{ movie_credit.get_small_image_url }}">
+                            {% elif movie_credit.movie %}
+                            <img class="square-crop" src="{{ movie_credit.movie.get_small_image_url }}">
+                            {% else %}
+                            <div class="image-placeholder"></div>
+                            {% endif %}
+                        </div>
+
                         <div class="filmography-title-wrapper">
-                            <div class="filmography-title">{{ movie_credit.movie_title }}</div>
-                            <div class="filmography-role">as {{ movie_credit.role }}</div>
+                            <div class="filmography-title-role-wrapper">
+                                <div class="filmography-title">{{ movie_credit.movie_title }}</div>
+                                <div class="filmography-role">as {{ movie_credit.role }}</div>
+                            </div>
+                            <div class="filmography-year">{{ movie_credit.release_date|date:'Y' }}</div>
                         </div>
                         {% if movie_credit.movie %}
                         </a>

@@ -3,13 +3,16 @@ $black: #161616
 %box-shadow
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2)
 %border-radius
-  border-radius: 0.2em
+  border-radius: 0.25em
 body
   color: $black
   padding: 0
   margin: 0
 a
   text-decoration: none
+
+img.square-crop
+  margin: -8px 0 0 0
 
 .main-container
   display: flex
@@ -116,7 +119,9 @@ a
 
     .detail-poster
       max-width: 15em
+
       img
+        @extend %border-radius
         width: 100%
 
     .detail-header-info
@@ -152,22 +157,37 @@ a
       .filmography-row,
       .filmography-row a
         display: flex
+        margin: .25em 0
 
+      .filmography-image
+        height: 3em
+        width: 3em
+        overflow: hidden
+        @extend %border-radius
+        img
+          width: 100%
       .filmography-year
         min-width: 2.5em
       .filmography-title-wrapper
-        display: flex
-        .filmography-title
-        .filmography-role
-          margin-left: 0.25em
+        margin-left: 0.5em
+        .filmography-title-role-wrapper
+          display: flex
+          .filmography-title
+            font-weight: bold
+          .filmography-role
+            margin-left: 0.25em
 
     .cast-wrapper
-      .cast-row
-        a
+      .cast-row,
+      .cast-row a
           display: flex
+          margin: .25em 0
 
       .cast-image
-        max-width: 3em
+        width: 3em
+        height: 3em
+        overflow: hidden
+        @extend %border-radius
         img
           width: 100%
 

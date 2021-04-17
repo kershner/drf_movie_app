@@ -2,8 +2,8 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.main-widget {
-  border-radius: 0.2em;
+.detail-container .detail-body .cast-wrapper .cast-image, .detail-container .detail-body .filmography-timeline .filmography-image, .detail-container .detail-header .detail-poster img, .main-widget {
+  border-radius: 0.25em;
 }
 
 body {
@@ -14,6 +14,10 @@ body {
 
 a {
   text-decoration: none;
+}
+
+img.square-crop {
+  margin: -8px 0 0 0;
 }
 
 .main-container {
@@ -166,21 +170,40 @@ a {
 .detail-container .detail-body .filmography-timeline .filmography-row,
 .detail-container .detail-body .filmography-timeline .filmography-row a {
   display: flex;
+  margin: 0.25em 0;
+}
+.detail-container .detail-body .filmography-timeline .filmography-image {
+  height: 3em;
+  width: 3em;
+  overflow: hidden;
+}
+.detail-container .detail-body .filmography-timeline .filmography-image img {
+  width: 100%;
 }
 .detail-container .detail-body .filmography-timeline .filmography-year {
   min-width: 2.5em;
 }
 .detail-container .detail-body .filmography-timeline .filmography-title-wrapper {
+  margin-left: 0.5em;
+}
+.detail-container .detail-body .filmography-timeline .filmography-title-wrapper .filmography-title-role-wrapper {
   display: flex;
 }
-.detail-container .detail-body .filmography-timeline .filmography-title-wrapper .filmography-role {
+.detail-container .detail-body .filmography-timeline .filmography-title-wrapper .filmography-title-role-wrapper .filmography-title {
+  font-weight: bold;
+}
+.detail-container .detail-body .filmography-timeline .filmography-title-wrapper .filmography-title-role-wrapper .filmography-role {
   margin-left: 0.25em;
 }
+.detail-container .detail-body .cast-wrapper .cast-row,
 .detail-container .detail-body .cast-wrapper .cast-row a {
   display: flex;
+  margin: 0.25em 0;
 }
 .detail-container .detail-body .cast-wrapper .cast-image {
-  max-width: 3em;
+  width: 3em;
+  height: 3em;
+  overflow: hidden;
 }
 .detail-container .detail-body .cast-wrapper .cast-image img {
   width: 100%;
