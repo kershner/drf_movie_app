@@ -4,7 +4,38 @@
 <div class="main-widget">
     <h3 class="widget-title">{{ movie.title }}</h3>
     <div class="widget-body">
-        <p>{{ movie.overview }}</p>
+        <div class="movie-detail-container">
+            <div class="movie-detail-header">
+                <div class="movie-detail-poster">
+                    <img src="{{ movie.get_full_image_url }}">
+                </div>
+
+                <div class="movie-detail-header-info">
+                    <div class="movie-detail-header-title">
+                        <div>
+                            <div class="header-title">{{ movie.title }}</div>
+                            <div class="header-date">{{ movie.release_date|date:'Y' }}</div>
+                        </div>
+
+                        <div>
+                            <ul>
+                                <li>{{ movie.release_date|date:'m/d/Y' }}</li>
+                                <li>&bull; {{ movie.runtime }} minutes</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="movie-detail-header-overview">
+                        <h3>Overview</h3>
+                        <p>{{ movie.overview }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-detail-body">
+
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

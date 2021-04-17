@@ -107,4 +107,47 @@ body {
   text-align: center;
 }
 
+.movie-detail-container {
+  padding: 0.5em 0;
+}
+.movie-detail-container .movie-detail-header {
+  display: flex;
+}
+.movie-detail-container .movie-detail-header .movie-detail-poster {
+  max-width: 10em;
+}
+.movie-detail-container .movie-detail-header .movie-detail-poster img {
+  width: 100%;
+}
+.movie-detail-container .movie-detail-header .movie-detail-header-info {
+  padding: 0 0.5em;
+}
+.movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title div {
+  display: flex;
+  align-self: center;
+}
+.movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title div ul {
+  padding: 0;
+  margin: 0;
+}
+.movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title div ul li {
+  display: inline;
+}
+.movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title .header-title {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title .header-date {
+  font-size: 1em;
+}
+.movie-detail-container .movie-detail-header-overview {
+  font-size: 1em;
+}
+.movie-detail-container .movie-detail-header-overview h3 {
+  font-size: 1em;
+}
+.movie-detail-container .movie-detail-header-overview p {
+  font-size: 1em;
+}
+
 /*# sourceMappingURL=main.css.map */
