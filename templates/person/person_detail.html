@@ -66,7 +66,9 @@
                         <div class="filmography-title-wrapper">
                             <div class="filmography-title-role-wrapper">
                                 <div class="filmography-title">{{ movie_credit.movie_title }}</div>
+                                {% if movie_credit.role %}
                                 <div class="filmography-role">as {{ movie_credit.role }}</div>
+                                {% endif %}
                             </div>
                             <div class="filmography-year">{{ movie_credit.release_date|date:'Y' }}</div>
                         </div>

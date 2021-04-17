@@ -4,7 +4,7 @@
         <img src="{{ movie.get_small_image_url }}">
     </div>
     <div class="movie-title">
-        {{ movie.title }}
+        {{ movie.title|truncatechars:25 }}
     </div>
     </a>
 </div>

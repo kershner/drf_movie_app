@@ -1,8 +1,8 @@
-.main-widget, .nav {
+.nav {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.detail-container .detail-body .cast-wrapper .cast-image, .detail-container .detail-body .filmography-timeline .filmography-image, .detail-container .detail-header .detail-poster img, .main-widget {
+.detail-container .detail-body .cast-wrapper .cast-image, .detail-container .detail-body .filmography-timeline .filmography-image, .detail-container .detail-header .detail-poster img, .movie-container .poster img {
   border-radius: 0.25em;
 }
 
@@ -99,6 +99,7 @@ img.square-crop {
   display: flex;
   flex-wrap: wrap;
   flex: 1;
+  justify-content: space-between;
 }
 .main-widget .more-link {
   text-align: right;
@@ -127,8 +128,8 @@ img.square-crop {
 }
 
 .back-link {
-  font-size: 1em;
-  text-align: center;
+  margin: 0;
+  margin-top: 1em;
 }
 
 .detail-container {
