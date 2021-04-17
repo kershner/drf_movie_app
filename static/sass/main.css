@@ -154,11 +154,29 @@ a {
   font-weight: bold;
   font-size: 1.5em;
 }
-.detail-container .detail-header-overview h4 {
+.detail-container .detail-header .detail-header-overview h4 {
   margin: 0.25em auto;
 }
-.detail-container .detail-header-overview p {
+.detail-container .detail-header .detail-header-overview p {
   margin: 0.25em auto;
+}
+.detail-container .detail-body .filmography-timeline {
+  max-width: 20em;
+}
+.detail-container .detail-body .filmography-timeline h3 {
+  margin: 0.25em auto;
+}
+.detail-container .detail-body .filmography-timeline .filmography-row {
+  display: flex;
+}
+.detail-container .detail-body .filmography-timeline .filmography-year {
+  margin-right: 0.5em;
+}
+.detail-container .detail-body .filmography-timeline .filmography-title-wrapper {
+  display: flex;
+}
+.detail-container .detail-body .filmography-timeline .filmography-title-wrapper .filmography-role {
+  margin-left: 0.25em;
 }
 
 /*# sourceMappingURL=main.css.map */

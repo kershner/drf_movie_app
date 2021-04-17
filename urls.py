@@ -1,3 +1,4 @@
+import movie_app.apps.movie_credit.views as movie_credit_views
 import movie_app.apps.person.views as person_views
 import movie_app.apps.movie.views as movie_views
 from rest_framework.routers import DefaultRouter
@@ -9,6 +10,7 @@ from django.contrib import admin
 api_router = DefaultRouter()
 api_router.register(r'movies', movie_views.MovieViewSet)
 api_router.register(r'people', person_views.PersonViewSet)
+api_router.register(r'movie-credits', movie_credit_views.MovieCreditViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

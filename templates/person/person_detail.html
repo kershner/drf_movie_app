@@ -41,7 +41,19 @@
             </div>
 
             <div class="detail-body">
+                <div class="filmography-timeline">
+                    <h3>Filmography</h3>
 
+                    {% for movie_credit in person.get_movie_credits %}
+                    <div class="filmography-row">
+                        <div class="filmography-year">{{ movie_credit.movie.release_date|date:'Y' }}</div>
+                        <div class="filmography-title-wrapper">
+                            <div class="filmography-title">{{ movie_credit.movie.title }}</div>
+                            <div class="filmography-role">as {{ movie_credit.role }}</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     '{}.apps.movie'.format(PROJECT_NAME),
-    '{}.apps.person'.format(PROJECT_NAME)
+    '{}.apps.person'.format(PROJECT_NAME),
+    '{}.apps.movie_credit'.format(PROJECT_NAME)
 ]
 
 MIDDLEWARE = [
