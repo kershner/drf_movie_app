@@ -1,3 +1,4 @@
+from movie_app.apps.movie_credit.models import MovieCredit
 from django.utils import timezone
 from django.contrib import admin
 from django.conf import settings
@@ -15,6 +16,9 @@ class Person(models.Model):
     tmdb_id = models.IntegerField(null=True, blank=True)
     tmdb_image_path = models.CharField(max_length=255, null=True, blank=True)
 
+    def __str__(self):
+        return self.name
+
     def get_full_image_url(self, size='w500'):
         return '{}{}{}'.format(settings.BASE_TMDB_IMAGE_URL, size, self.tmdb_image_path)
 
@@ -23,6 +27,10 @@ class Person(models.Model):
 
     def get_medium_image_url(self):
         return self.get_full_image_url(size='w400')
+
+    def get_movie_credits(self):
+        movie_credits = MovieCredit.objects.filter(person=self).all()
+        return movie_credits
 
 
 @admin.register(Person)
