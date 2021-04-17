@@ -1,4 +1,4 @@
-.main-widget, .main-container .nav {
+.main-widget, .nav {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
@@ -17,29 +17,32 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-.main-container .nav {
+
+.nav {
   display: flex;
   justify-content: space-between;
   padding: 1em;
 }
-.main-container .nav .nav-logo {
+.nav .nav-logo {
   font-weight: bold;
 }
-.main-container .nav .nav-links a {
+.nav .nav-links a {
   margin: 0 0.5em;
 }
-.main-container .body {
+
+.body {
   margin: 0 auto;
   width: 100%;
   max-width: 60em;
   flex: 1;
 }
-.main-container .body .body-inner {
+.body .body-inner {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
-.main-container .footer {
+
+.footer {
   display: flex;
   justify-content: space-evenly;
   margin: 0 auto;
@@ -47,17 +50,17 @@ body {
   max-width: 70em;
   width: 100%;
 }
-.main-container .footer ul {
+.footer ul {
   list-style: none;
 }
-.main-container .footer ul li:first-of-type {
+.footer ul li:first-of-type {
   font-size: 0.8em;
   font-weight: bold;
 }
-.main-container .footer ul li {
+.footer ul li {
   margin: 0.25em 0;
 }
-.main-container .footer ul li a {
+.footer ul li a {
   margin-left: 1em;
   text-decoration: none;
 }
@@ -97,6 +100,11 @@ body {
 }
 .movie-container .movie-title {
   font-size: 0.8em;
+}
+
+.pagination {
+  margin: 0.5em auto;
+  text-align: center;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -15,51 +15,51 @@ body
   flex-direction: column
   min-height: 100vh
 
-  .nav
+.nav
+  display: flex
+  justify-content: space-between
+  padding: 1em
+
+  @extend %box-shadow
+
+  .nav-logo
+    font-weight: bold
+
+  .nav-links
+    a
+      margin: 0 .5em
+
+.body
+  margin: 0 auto
+  width: 100%
+  max-width: 60em
+  flex: 1
+
+  .body-inner
     display: flex
-    justify-content: space-between
-    padding: 1em
+    justify-content: space-around
+    flex-wrap: wrap
 
-    @extend %box-shadow
+.footer
+  display: flex
+  justify-content: space-evenly
+  margin: 0 auto
+  margin-bottom: 2em
+  max-width: 70em
+  width: 100%
 
-    .nav-logo
+  ul
+    list-style: none
+
+    li:first-of-type
+      font-size: 0.8em
       font-weight: bold
 
-    .nav-links
+    li
+      margin: .25em 0
       a
-        margin: 0 .5em
-
-  .body
-    margin: 0 auto
-    width: 100%
-    max-width: 60em
-    flex: 1
-
-    .body-inner
-      display: flex
-      justify-content: space-around
-      flex-wrap: wrap
-
-  .footer
-    display: flex
-    justify-content: space-evenly
-    margin: 0 auto
-    margin-bottom: 2em
-    max-width: 70em
-    width: 100%
-
-    ul
-      list-style: none
-
-      li:first-of-type
-        font-size: 0.8em
-        font-weight: bold
-
-      li
-        margin: .25em 0
-        a
-          margin-left: 1em
-          text-decoration: none
+        margin-left: 1em
+        text-decoration: none
 
 .main-widget
   display: inline-flex
@@ -93,3 +93,7 @@ body
       width: 100%
   .movie-title
     font-size: 0.8em
+
+.pagination
+  margin: .5em auto
+  text-align: center
