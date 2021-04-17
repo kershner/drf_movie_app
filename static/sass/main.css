@@ -59,6 +59,7 @@ img.square-crop {
 .footer .footer-links {
   display: flex;
   justify-content: space-evenly;
+  padding: 0 0.5em;
 }
 .footer .footer-links ul {
   padding-left: 0;
@@ -69,9 +70,6 @@ img.square-crop {
 }
 .footer .footer-links ul li {
   margin: 0.25em 0;
-}
-.footer .footer-links ul li a {
-  margin-left: 0.5em;
 }
 .footer .footer-extra {
   text-align: center;
@@ -130,6 +128,7 @@ img.square-crop {
 .back-link {
   margin: 0;
   margin-top: 1em;
+  padding: 0 0.5em;
 }
 
 .detail-container {
