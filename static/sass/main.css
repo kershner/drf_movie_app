@@ -114,7 +114,7 @@ body {
   display: flex;
 }
 .movie-detail-container .movie-detail-header .movie-detail-poster {
-  max-width: 10em;
+  max-width: 15em;
 }
 .movie-detail-container .movie-detail-header .movie-detail-poster img {
   width: 100%;
@@ -122,15 +122,16 @@ body {
 .movie-detail-container .movie-detail-header .movie-detail-header-info {
   padding: 0 0.5em;
 }
-.movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title div {
+.movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title .movie-detail-header-title-row {
   display: flex;
-  align-self: center;
+  align-items: center;
+  margin-bottom: 0.5em;
 }
-.movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title div ul {
+.movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title .movie-detail-header-title-row ul {
   padding: 0;
   margin: 0;
 }
-.movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title div ul li {
+.movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title .movie-detail-header-title-row ul li {
   display: inline;
 }
 .movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title .header-title {
@@ -138,16 +139,13 @@ body {
   font-size: 1.5em;
 }
 .movie-detail-container .movie-detail-header .movie-detail-header-info .movie-detail-header-title .header-date {
-  font-size: 1em;
+  margin-left: 0.25em;
 }
-.movie-detail-container .movie-detail-header-overview {
-  font-size: 1em;
-}
-.movie-detail-container .movie-detail-header-overview h3 {
-  font-size: 1em;
+.movie-detail-container .movie-detail-header-overview h4 {
+  margin: 0.25em auto;
 }
 .movie-detail-container .movie-detail-header-overview p {
-  font-size: 1em;
+  margin: 0.25em auto;
 }
 
 /*# sourceMappingURL=main.css.map */
