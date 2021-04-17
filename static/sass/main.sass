@@ -23,12 +23,10 @@ img.square-crop
   display: flex
   justify-content: space-between
   padding: 1em
-
   @extend %box-shadow
 
   .nav-logo
     font-weight: bold
-
   .nav-links
     a
       margin: 0 .5em
@@ -41,8 +39,8 @@ img.square-crop
 
   .body-inner
     display: flex
-    justify-content: space-around
-    flex-wrap: wrap
+    flex-direction: column
+    justify-content: center
 
 .footer
   margin: 0 auto
@@ -110,6 +108,10 @@ img.square-crop
 
 .pagination
   margin: .5em auto
+  text-align: center
+
+.back-link
+  font-size: 1em
   text-align: center
 
 .detail-container

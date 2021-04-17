@@ -19,8 +19,13 @@
 
                         <div class="detail-header-title-row">
                             <ul>
+                                {% if person.birthday %}
                                 <li>{{ person.birthday|date:'m/d/Y' }}</li>
+                                {% endif %}
+
+                                {% if person.place_of_birth %}
                                 <li>&bull; {{ person.place_of_birth }}</li>
+                                {% endif %}
                             </ul>
                         </div>
 
@@ -30,13 +35,16 @@
                     </div>
 
                     <div class="detail-header-overview">
+                        {% if person.bio %}
                         <h4>Biography</h4>
                         <p>{{ person.bio }}</p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
 
             <div class="detail-body">
+                {% if person.get_movie_credits %}
                 <div class="filmography-timeline">
                     <h3>Filmography</h3>
 
@@ -68,12 +76,9 @@
                     </div>
                     {% endfor %}
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>
 </div>
-
-<p>
-    <a href="{{request.META.HTTP_REFERER}}">Back</a>
-</p>
 {% endblock %}

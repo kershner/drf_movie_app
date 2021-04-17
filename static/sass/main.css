@@ -46,8 +46,8 @@ img.square-crop {
 }
 .body .body-inner {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .footer {
@@ -123,6 +123,11 @@ img.square-crop {
 
 .pagination {
   margin: 0.5em auto;
+  text-align: center;
+}
+
+.back-link {
+  font-size: 1em;
   text-align: center;
 }
 

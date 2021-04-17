@@ -16,6 +16,14 @@
             <div class="body-inner">
                 {% block main_content %}{% endblock %}
             </div>
+
+            {% with request.resolver_match.view_name as view_name %}
+            {% if view_name != 'home' %}
+            <p class="back-link">
+                <a href="{{request.META.HTTP_REFERER}}">Back</a>
+            </p>
+            {% endif %}
+            {% endwith %}
         </div>
 
         {% include 'footer.html' %}

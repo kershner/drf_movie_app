@@ -38,6 +38,7 @@
             </div>
 
             <div class="detail-body">
+                {% if movie.get_cast %}
                 <div class="cast-wrapper">
                     <h3>Cast</h3>
 
@@ -70,12 +71,9 @@
                     </div>
                     {% endfor %}
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>
 </div>
-
-<p>
-    <a href="{{request.META.HTTP_REFERER}}">Back</a>
-</p>
 {% endblock %}
