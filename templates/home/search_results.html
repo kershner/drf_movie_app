@@ -6,17 +6,14 @@
 {% block main_content %}
 {% include 'components/search_form.html' %}
 
+{% if movie_results or person_results or character_results %}
 {% if movie_results %}
 <div class="main-widget">
-    <div class="widget-body">
-        <div class="search-results movie-results">
-        <h3 class="widget-title">Movie Results <span>{{ movie_results|length }}</span></h3>
-            <ul>
-            {% for result in movie_results %}
-                <li>{{ result }}</li>
-            {% endfor %}
-            </ul>
-        </div>
+    <h3 class="widget-title">Movie Results <span>{{ movie_results|length }}</span></h3>
+    <div class="widget-body search-results">
+        {% for movie in movie_results %}
+            {% include 'movie/movie_container.html' %}
+        {% endfor %}
     </div>
 </div>
 {% endif %}
@@ -24,14 +21,10 @@
 {% if person_results %}
 <div class="main-widget">
     <h3 class="widget-title">Person Results <span>{{ person_results|length }}</span></h3>
-    <div class="widget-body">
-        <div class="search-results person-results">
-            <ul>
-            {% for result in person_results %}
-                <li>{{ result }}</li>
-            {% endfor %}
-            </ul>
-        </div>
+    <div class="widget-body search-results">
+        {% for person in person_results %}
+            {% include 'person/person_container.html' %}
+        {% endfor %}
     </div>
 </div>
 {% endif %}
@@ -39,14 +32,19 @@
 {% if character_results %}
 <div class="main-widget">
     <h3 class="widget-title">Character Results <span>{{ character_results|length }}</span></h3>
+    <div class="widget-body search-results">
+        <ul>
+        {% for result in character_results %}
+            <li>{{ result }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endif %}
+{% else %}
+<div class="main-widget">
     <div class="widget-body">
-        <div class="search-results character-results">
-            <ul>
-            {% for result in character_results %}
-                <li>{{ result }}</li>
-            {% endfor %}
-            </ul>
-        </div>
+        <p>No results for "{{ q }}."</p>
     </div>
 </div>
 {% endif %}

@@ -1,7 +1,3 @@
-.nav {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-
 .detail-container .detail-body .cast-wrapper .cast-image, .detail-container .detail-body .filmography-timeline .filmography-image, .detail-container .detail-header .detail-poster img, .movie-container .poster img {
   border-radius: 0.25em;
 }
@@ -29,7 +25,10 @@ img.square-crop {
 .nav {
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
   padding: 1em;
+  max-width: 90em;
+  width: 100%;
 }
 .nav .nav-logo {
   font-weight: bold;
@@ -98,6 +97,9 @@ img.square-crop {
   flex-wrap: wrap;
   flex: 1;
   justify-content: space-between;
+}
+.main-widget .widget-body.search-results {
+  justify-content: flex-start;
 }
 .main-widget .more-link {
   text-align: right;
