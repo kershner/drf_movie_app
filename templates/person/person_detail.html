@@ -54,12 +54,10 @@
                         <a href="{% url 'movie' pk=movie_credit.movie.id %}">
                         {% endif %}
                         <div class="filmography-image">
-                            {% if movie_credit.get_small_image_url %}
-                            <img class="square-crop" src="{{ movie_credit.get_small_image_url }}">
-                            {% elif movie_credit.movie %}
+                            {% if movie_credit.movie %}
                             <img class="square-crop" src="{{ movie_credit.movie.get_small_image_url }}">
                             {% else %}
-                            <div class="image-placeholder"></div>
+                            <img class="square-crop" src="{{ movie_credit.movie.get_small_image_url }}">
                             {% endif %}
                         </div>
 

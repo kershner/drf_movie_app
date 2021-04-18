@@ -1,3 +1,4 @@
+from django.templatetags.static import static
 from django.utils import timezone
 from django.conf import settings
 from django.contrib import admin
@@ -19,17 +20,17 @@ class MovieCredit(models.Model):
     def get_full_image_url(self, size='w500'):
         if self.tmdb_image_path:
             return '{}{}{}'.format(settings.BASE_TMDB_IMAGE_URL, size, self.tmdb_image_path)
-        return None
+        return static(settings.NO_IMAGE_FILENAME)
 
     def get_small_image_url(self):
         if self.tmdb_image_path:
             return self.get_full_image_url(size='w200')
-        return None
+        return static(settings.NO_IMAGE_FILENAME)
 
     def get_medium_image_url(self):
         if self.tmdb_image_path:
             return self.get_full_image_url(size='w400')
-        return None
+        return static(settings.NO_IMAGE_FILENAME)
 
     def __str__(self):
         return 'Credit for {} as {} in {}'.format(self.person, self.movie, self.role)

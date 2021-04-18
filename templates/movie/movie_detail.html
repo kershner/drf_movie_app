@@ -49,7 +49,7 @@
                         {% endif %}
                         <div class="cast-image">
                             {% if movie_credit.person %}
-                                <img class="square-crop" src="{{ movie_credit.person.get_small_image_url }}">
+                                <img src="{{ movie_credit.person.get_small_image_url }}">
                             {% else %}
                                 <img src="{% static 'img/no_image.png' %}">
                             {% endif %}

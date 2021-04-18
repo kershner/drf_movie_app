@@ -137,3 +137,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # TMDB
 BASE_TMDB_API_URL = 'https://api.themoviedb.org/3/'
 BASE_TMDB_IMAGE_URL = 'https://image.tmdb.org/t/p/'
+
+# Default no-image filename
+NO_IMAGE_FILENAME = 'img/no_image.png'

@@ -1,4 +1,5 @@
 from movie_app.apps.movie_credit.models import MovieCredit
+from django.templatetags.static import static
 from django.utils import timezone
 from django.contrib import admin
 from django.conf import settings
@@ -20,13 +21,19 @@ class Person(models.Model):
         return self.name
 
     def get_full_image_url(self, size='w500'):
-        return '{}{}{}'.format(settings.BASE_TMDB_IMAGE_URL, size, self.tmdb_image_path)
+        if self.tmdb_image_path:
+            return '{}{}{}'.format(settings.BASE_TMDB_IMAGE_URL, size, self.tmdb_image_path)
+        return static(settings.NO_IMAGE_FILENAME)
 
     def get_small_image_url(self):
-        return self.get_full_image_url(size='w200')
+        if self.tmdb_image_path:
+            return self.get_full_image_url(size='w200')
+        return static(settings.NO_IMAGE_FILENAME)
 
     def get_medium_image_url(self):
-        return self.get_full_image_url(size='w400')
+        if self.tmdb_image_path:
+            return self.get_full_image_url(size='w400')
+        return static(settings.NO_IMAGE_FILENAME)
 
     def get_movie_credits(self):
         movie_credits = MovieCredit.objects.filter(person=self).order_by('-release_date').all()
