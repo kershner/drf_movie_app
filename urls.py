@@ -15,10 +15,10 @@ api_router.register(r'movie-credits', movie_credit_views.MovieCreditViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_views.home, name='home'),
+    path('search/', main_views.search_results, name='search_results'),
     path('api/', include(api_router.urls)),
     path('movies/', movie_views.MovieListView.as_view(), name='movies'),
     path('movies/<int:pk>', movie_views.MovieDetailView.as_view(), name='movie'),
     path('people/', person_views.PersonListView.as_view(), name='people'),
     path('people/<int:pk>', person_views.PersonDetailView.as_view(), name='person')
 ]
-
