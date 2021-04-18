@@ -5,7 +5,7 @@
 {% block main_content %}
 <div class="main-widget">
     <h3 class="widget-title">All People</h3>
-    <div class="widget-body">
+    <div class="widget-body list-view">
     {% for person in person_list %}
         {% include 'person/person_container.html' %}
     {% endfor %}

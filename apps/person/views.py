@@ -14,7 +14,7 @@ class PersonViewSet(viewsets.ModelViewSet):
 class PersonListView(generic.ListView):
     model = Person
     template_name = 'person/person_list.html'
-    paginate_by = 40
+    paginate_by = 80
 
 
 class PersonDetailView(generic.DetailView):

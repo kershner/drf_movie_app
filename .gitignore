@@ -7,3 +7,4 @@ static/assets/
 static/admin/
 static/rest_framework/
 apps/movie_credit/migrations/
+apps/genre/migrations/

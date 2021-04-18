@@ -14,7 +14,7 @@ class MovieViewSet(viewsets.ModelViewSet):
 class MovieListView(generic.ListView):
     model = Movie
     template_name = 'movie/movie_list.html'
-    paginate_by = 40
+    paginate_by = 80
 
 
 class MovieDetailView(generic.DetailView):

@@ -5,7 +5,7 @@
 {% block main_content %}
 <div class="main-widget">
     <h3 class="widget-title">All Movies</h3>
-    <div class="widget-body">
+    <div class="widget-body list-view">
     {% for movie in movie_list %}
         {% include 'movie/movie_container.html' %}
     {% endfor %}

@@ -11,6 +11,7 @@ class Movie(models.Model):
     created_at = models.DateTimeField(editable=False, default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True, editable=False)
     title = models.CharField(max_length=255, null=False, blank=False)
+    genres = models.ManyToManyField('genre.Genre', blank=True)
     overview = models.TextField(null=True, blank=True)
     runtime = models.IntegerField(null=True, blank=True)
     budget = models.IntegerField(null=True, blank=True)
@@ -46,6 +47,7 @@ class MovieAdmin(admin.ModelAdmin):
     list_per_page = 100
     list_display = ('id', 'created_at', 'title', 'runtime')
     list_display_links = ['id', 'created_at', 'title', 'runtime']
+    autocomplete_fields = ['genres']
     search_fields = ['id', 'title']
     save_on_top = True
     show_full_result_count = True
