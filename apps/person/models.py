@@ -14,6 +14,7 @@ class Person(models.Model):
     place_of_birth = models.CharField(max_length=255, null=True, blank=True)
     birthday = models.DateTimeField(null=True, blank=True)
     deathday = models.DateTimeField(null=True, blank=True)
+    popularity = models.FloatField(null=True, blank=True)
     tmdb_id = models.IntegerField(null=True, blank=True)
     tmdb_image_path = models.CharField(max_length=255, null=True, blank=True)
 
