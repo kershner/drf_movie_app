@@ -37,5 +37,4 @@ def search_results(request):
             }
             return render(request, 'home/search_results.html', ctx)
 
-    ctx = {'form': SearchForm()}
-    return render(request, 'home/search_results.html', ctx)
+    return render(request, 'home/search_results.html')

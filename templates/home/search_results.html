@@ -33,11 +33,9 @@
 <div class="main-widget">
     <h3 class="widget-title">Character Results <span>{{ character_results|length }}</span></h3>
     <div class="widget-body search-results">
-        <ul>
-        {% for result in character_results %}
-            <li>{{ result }}</li>
+        {% for movie_credit in character_results %}
+            {% include 'movie_credit/movie_credit_container.html' %}
         {% endfor %}
-        </ul>
     </div>
 </div>
 {% endif %}

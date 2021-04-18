@@ -4,6 +4,9 @@ $black: #161616
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2)
 %border-radius
   border-radius: 0.25em
+%fixed-medium-size-scrollable
+  overflow-y: auto
+  max-height: 50em
 body
   color: $black
   padding: 0
@@ -16,22 +19,18 @@ img.square-crop
 
 .main-container
   display: flex
+  margin: 0 auto
   flex-direction: column
   min-height: 100vh
+  max-width: 90em
 
 .nav
   display: flex
   justify-content: space-between
-  margin: 0 auto
   padding: 1em
-  max-width: 90em
-  width: 100%
 
   .nav-logo
     font-weight: bold
-  .nav-links
-    a
-      margin: 0 .5em
 
 .body
   margin: 0 auto
@@ -93,6 +92,7 @@ img.square-crop
 
     &.search-results
       justify-content: flex-start
+      @extend %fixed-medium-size-scrollable
 
   .more-link
     text-align: right
@@ -160,6 +160,8 @@ img.square-crop
         margin: 0.25em auto
 
   .detail-body
+    @extend %fixed-medium-size-scrollable
+
     h3
       margin: .25em auto
 

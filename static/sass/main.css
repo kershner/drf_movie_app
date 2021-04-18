@@ -2,6 +2,11 @@
   border-radius: 0.25em;
 }
 
+.detail-container .detail-body, .main-widget .widget-body.search-results {
+  overflow-y: auto;
+  max-height: 50em;
+}
+
 body {
   color: #161616;
   padding: 0;
@@ -18,23 +23,19 @@ img.square-crop {
 
 .main-container {
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
   min-height: 100vh;
+  max-width: 90em;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
   padding: 1em;
-  max-width: 90em;
-  width: 100%;
 }
 .nav .nav-logo {
   font-weight: bold;
-}
-.nav .nav-links a {
-  margin: 0 0.5em;
 }
 
 .body {

@@ -1,9 +1,5 @@
 <div class="main-widget">
     <div class="widget-body">
-        <form action="{% url 'search_results' %}" method="post">
-            {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="Submit">
-        </form>
+        {% include 'components/search_form_inner.html' %}
     </div>
 </div>
