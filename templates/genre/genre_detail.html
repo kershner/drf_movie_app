@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}- {{ genre.name}}{% endblock %}
+
+{% block main_content %}
+<div class="main-widget">
+    <h3 class="widget-title">{{ genre.name }} Movies  <span>{{ movie_list|length }}</span></h3>
+    <div class="widget-body search-results">
+    {% for movie in movie_list %}
+        {% include 'movie/movie_container.html' %}
+    {% endfor %}
+    </div>
+
+    {% include 'components/pagination.html' %}
+</div>
+{% endblock %}

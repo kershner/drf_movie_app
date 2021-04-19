@@ -23,6 +23,5 @@ urlpatterns = [
     path('movies/<int:pk>', movie_views.MovieDetailView.as_view(), name='movie'),
     path('people/', person_views.PersonListView.as_view(), name='people'),
     path('people/<int:pk>', person_views.PersonDetailView.as_view(), name='person'),
-    path('genre/', genre_views.GenreDetailView.as_view(), name='genres'),
     path('genre/<int:pk>', genre_views.GenreDetailView.as_view(), name='genre')
 ]
