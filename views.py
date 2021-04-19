@@ -10,13 +10,14 @@ import random
 
 def home(request):
     num_results = 20
-    movie_pks = Movie.objects.values_list('pk', flat=True)
+    min_credits = 10
+    movie_pks = Movie.objects.annotate(c=Count('moviecredit')).filter(tmdb_image_path__isnull=False, c__gte=min_credits).values_list('pk', flat=True)
     random_movie_pks = [random.choice(movie_pks) for num in range(num_results)]
-    popular_movies = Movie.objects.filter(tmdb_image_path__isnull=False).filter(id__in=random_movie_pks).all()
+    popular_movies = Movie.objects.filter(pk__in=random_movie_pks).order_by('-popularity').all()
 
-    people_pks = Person.objects.values_list('pk', flat=True).order_by('-popularity')[:1000]
+    people_pks = Person.objects.annotate(c=Count('moviecredit')).filter(tmdb_image_path__isnull=False, c__gte=min_credits).values_list('pk', flat=True)
     random_people_pks = [random.choice(people_pks) for num in range(num_results)]
-    popular_people = Person.objects.filter(tmdb_image_path__isnull=False).filter(id__in=random_people_pks).all().order_by('-popularity')
+    popular_people = Person.objects.filter(pk__in=random_people_pks).order_by('-popularity').all()
 
     character_pks = MovieCredit.objects.values_list('pk', flat=True)
     random_character_pks = [random.choice(character_pks) for num in range(num_results)]

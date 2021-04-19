@@ -16,6 +16,7 @@ class Movie(models.Model):
     runtime = models.IntegerField(null=True, blank=True)
     budget = models.IntegerField(null=True, blank=True)
     release_date = models.DateTimeField(null=True, blank=True)
+    popularity = models.FloatField(null=True, blank=True)
     tmdb_id = models.IntegerField(null=True, blank=True)
     tmdb_image_path = models.CharField(max_length=255, null=True, blank=True)
 
