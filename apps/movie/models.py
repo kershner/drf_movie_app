@@ -1,10 +1,11 @@
 from movie_app.apps.movie_credit.models import MovieCredit
 from django.templatetags.static import static
 from django.utils import timezone
-from django.db.models import Q
 from django.contrib import admin
 from django.conf import settings
+from django.db.models import Q
 from django.db import models
+import locale
 
 
 class Movie(models.Model):
@@ -41,6 +42,10 @@ class Movie(models.Model):
     def get_cast(self):
         movie_credits = MovieCredit.objects.filter(Q(movie=self) | Q(movie_title=self.title)).order_by('-release_date').all()
         return movie_credits
+
+    def get_budget_display(self):
+        locale.setlocale(locale.LC_ALL, '')
+        return locale.currency(self.budget, grouping=True).split('.')[0]
 
 
 @admin.register(Movie)

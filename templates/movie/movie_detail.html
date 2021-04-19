@@ -20,8 +20,17 @@
 
                         <div class="detail-header-title-row">
                             <ul>
+                                {% if movie.release_date %}
                                 <li>{{ movie.release_date|date:'m/d/Y' }}</li>
+                                {% endif %}
+
+                                {% if movie.runtime %}
                                 <li>{% if movie.release_date %}&bull; {% endif %}{{ movie.runtime }} minutes</li>
+                                {% endif %}
+
+                                {% if movie.budget %}
+                                <li>{% if movie.release_date and movie.runtime %}&bull; {% endif %}{{ movie.get_budget_display }} budget</li>
+                                {% endif %}
                             </ul>
                         </div>
 
