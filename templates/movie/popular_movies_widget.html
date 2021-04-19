@@ -1,0 +1,12 @@
+<div class="main-widget">
+    <h3 class="widget-title">Popular Movies</h3>
+    <div class="widget-body search-results">
+    {% for movie in popular_movies %}
+        {% include 'movie/movie_container.html' %}
+    {% endfor %}
+    </div>
+
+    <a href="{% url 'movies' %}">
+        <div class="more-link button">View All Movies</div>
+    </a>
+</div>

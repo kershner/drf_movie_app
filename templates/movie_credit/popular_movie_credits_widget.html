@@ -1,0 +1,8 @@
+<div class="main-widget">
+    <h3 class="widget-title">Popular Characters</h3>
+    <div class="widget-body search-results">
+    {% for movie_credit in popular_characters %}
+        {% include 'movie_credit/movie_credit_container.html' %}
+    {% endfor %}
+    </div>
+</div>

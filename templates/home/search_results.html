@@ -4,7 +4,9 @@
 {% block title %}- Search Results {% if q %}for {{ q }}{% endif %}{% endblock %}
 
 {% block main_content %}
-{% include 'components/search_form.html' %}
+<div class="full-width-search-form">
+{% include 'components/search_form_inner.html' %}
+</div>
 
 {% if movie_results or person_results or character_results %}
 {% if movie_results %}
@@ -41,8 +43,8 @@
 {% endif %}
 {% else %}
 <div class="main-widget">
-    <div class="widget-body">
-        <p>No results for "{{ q }}."</p>
+    <div class="text-center">
+        <h3>No results for <span>{{ q }}</span>.</h3>
     </div>
 </div>
 {% endif %}

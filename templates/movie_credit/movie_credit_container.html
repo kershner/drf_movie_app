@@ -13,7 +13,8 @@
         {% endif %}
     </div>
     <div class="movie-title">
-        {{ movie_credit.role }}
+        <div>{{ movie_credit.role }}</div>
+        <div class="movie-credit-actor">{{ movie_credit.person.name }}</div>
     </div>
 
     {% if movie_credit.movie %}

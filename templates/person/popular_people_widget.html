@@ -1,0 +1,12 @@
+<div class="main-widget">
+    <h3 class="widget-title">Popular People</h3>
+    <div class="widget-body search-results">
+    {% for person in popular_people %}
+        {% include 'person/person_container.html' %}
+    {% endfor %}
+    </div>
+
+    <a href="{% url 'people' %}">
+        <div class="more-link button">View All People</div>
+    </a>
+</div>

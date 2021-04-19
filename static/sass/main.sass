@@ -1,5 +1,13 @@
-$black: #161616
+$black: #484848
+$white: #FFF
 $light-grey: #a8a8a8
+$lighter-grey: #ddd
+$accent-color: #8c53c6
+$lighter-font-weight: 200
+$slight-opacity: 0.8
+
+%thin-light-border
+  border: 1px solid $lighter-grey
 
 %box-shadow
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2)
@@ -9,14 +17,14 @@ $light-grey: #a8a8a8
 
 %macos-style-scrollbar
   &::-webkit-scrollbar
-    background-color: #fff
+    background-color: $white
     width: 16px
   &::-webkit-scrollbar-track
-    background-color: #fff
+    background-color: $white
   &::-webkit-scrollbar-thumb
     background-color: rgba(0,0,0,0)
     border-radius: 16px
-    border: 4px solid #fff
+    border: 4px solid $white
   &::-webkit-scrollbar-button
     display: none
   &:hover::-webkit-scrollbar-thumb
@@ -30,6 +38,29 @@ $light-grey: #a8a8a8
   max-height: 60em
   @extend %macos-style-scrollbar
 
+%generic-button
+  cursor: pointer
+  color: $white
+  background-color: $accent-color
+  padding: .25em .5em
+  font-weight: $lighter-font-weight
+  @extend %border-radius
+  a
+    color: $white
+
+  &:hover
+    color: $white !important
+    background-color: darken($accent-color, 10)
+
+.button
+  @extend %generic-button
+
+.text-center
+  text-align: center
+
+.hidden
+  display: none
+
 body
   color: $black
   padding: 0
@@ -38,6 +69,12 @@ body
 a
   text-decoration: none
   color: $black
+  &:hover
+    color: $accent-color !important
+h3
+  span
+    font-weight: $lighter-font-weight
+    color: $light-grey
 
 img.square-crop
   margin: -8px 0 0 0
@@ -55,7 +92,13 @@ img.square-crop
   padding: 1em
 
   .nav-logo
-    font-weight: bold
+    a
+      color: $accent-color
+      font-weight: bold
+      font-size: 1.5em
+
+      &:hover
+        color: darken($accent-color, 10)
 
 .body
   margin: 0 auto
@@ -68,6 +111,7 @@ img.square-crop
     flex-direction: column
     justify-content: center
 
+/* Footer */
 .footer
   margin: 0 auto
   margin-bottom: 2em
@@ -85,12 +129,14 @@ img.square-crop
 
       li:first-of-type
         font-weight: bold
-
       li
         margin: .25em 0
+        a
+          color: $light-grey
 
   .footer-extra
     text-align: center
+    color: $light-grey
 
     .footer-img
       margin: 0 auto
@@ -98,6 +144,7 @@ img.square-crop
       img
         width: 100%
 
+/* Main Widget */
 .main-widget
   display: inline-flex
   flex-direction: column
@@ -122,12 +169,47 @@ img.square-crop
       @extend %fixed-medium-size-scrollable
 
   .more-link
-    text-align: right
+    margin-top: 0.5em
+    float: left
 
+/* Search */
+.search-form
+  display: flex
+
+  input
+    margin-right: .25em
+    padding: 0.5em 0.75em
+    font-weight: 400
+    color: $black
+    @extend %thin-light-border
+    @extend %border-radius
+    &::placeholder
+      color: $light-grey
+
+  button
+    @extend %generic-button
+    border: none
+
+.full-width-search-form
+  margin-top: 1em
+  padding: 0.25em 0.5em
+
+  input
+    padding: 0.875rem 1.5rem
+    flex-grow: 0
+    flex-shrink: 1
+    width: 100%
+    font-size: 1rem
+    line-height: 1rem
+
+  button
+    font-size: 1rem
+    line-height: 1rem
+
+/* Generic Object Container - rename eventually */
 .movie-container
   margin: .25em
   width: 5em
-
   a
     text-decoration: none
 
@@ -138,26 +220,50 @@ img.square-crop
       @extend %border-radius
 
   .movie-title
-    font-size: 0.8em
+    word-break: break-word
+    .movie-credit-actor
+      color: $light-grey
+      font-weight: $lighter-font-weight
 
+  &:hover
+    .poster
+      opacity: $slight-opacity
+    .movie-title
+      color: $accent-color
+
+/* Pagination */
 .pagination
   margin: .5em auto
   text-align: center
 
+/* Tags */
 .genre-tag
   margin: .1em
   margin-right: 0.2em
   margin-left: 0
   padding: 0.25em
   background-color: $light-grey
+  font-weight: $lighter-font-weight
   color: white
   @extend %border-radius
+
+  &:hover
+    background-color: $accent-color
+
+.front-page-genres
+  .genre-tag
+    font-size: 1.4rem
+    line-height: 1.4rem
+    font-weight: 200
 
 .back-link
   margin: 0
   margin-top: 1em
-  padding: 0 .5em
+  margin-left: 0.5em
+  a
+    @extend %generic-button
 
+/* Detail Container */
 .detail-container
   padding: .5em 0
   .detail-header
@@ -186,6 +292,7 @@ img.square-crop
             margin: 0
             li
               display: inline
+              color: $light-grey
 
         .header-title
           font-weight: bold
@@ -203,11 +310,18 @@ img.square-crop
     h3
       margin: .25em auto
 
+    /* Person-specific filmography list */
     .filmography-timeline
       .filmography-row,
       .filmography-row a
         display: flex
         margin: .25em 0
+
+        &:hover
+          .filmography-image
+            opacity: $slight-opacity
+          .filmography-title-role-wrapper
+            color: $accent-color
 
       .filmography-image
         height: 3em
@@ -227,11 +341,18 @@ img.square-crop
           .filmography-role
             margin-left: 0.25em
 
+    /* Movie-specific cast list */
     .cast-wrapper
       .cast-row,
       .cast-row a
           display: flex
           margin: .25em 0
+
+          &:hover
+            .cast-image
+              opacity: $slight-opacity
+            .cast-name
+              color: $accent-color
 
       .cast-image
         width: 3em
@@ -249,4 +370,5 @@ img.square-crop
           font-weight: bold
         .cast-role
           font-size: 1em
-
+          color: $light-grey
+          font-weight: $lighter-font-weight

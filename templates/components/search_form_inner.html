@@ -1,5 +1,5 @@
-<form action="{% url 'search_results' %}" method="post">
+<form action="{% url 'search_results' %}" method="post" class="search-form">
     {% csrf_token %}
     {{ search_form }}
-    <input type="submit" value="Submit">
+    <button type="submit">Search</button>
 </form>
