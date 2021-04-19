@@ -1,0 +1,8 @@
+<div class="main-widget">
+    <h3 class="widget-title">Genres</h3>
+    <div class="widget-body search-results">
+    {% for genre in genres %}
+        {% include 'genre/genre_container.html' %}
+    {% endfor %}
+    </div>
+</div>

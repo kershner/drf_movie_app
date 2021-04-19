@@ -1,6 +1,7 @@
 from movie_app.apps.movie.models import MovieCredit
 from movie_app.apps.person.models import Person
 from movie_app.apps.movie.models import Movie
+from movie_app.apps.genre.models import Genre
 from movie_app.forms import SearchForm
 from django.db.models import Count
 from django.shortcuts import render
@@ -12,10 +13,12 @@ def home(request):
     movie_pks = Movie.objects.values_list('id', flat=True)
     recent_movies = Movie.objects.filter(pk__in=util.get_random_pks(pks=movie_pks, limit=len(movie_pks))).all()[:num_results]
     recent_people = Person.objects.filter(tmdb_image_path__isnull=False).annotate(c=Count('moviecredit')).all().order_by('-c')[:num_results]
+    genres = Genre.objects.all()
     ctx = {
         'form': SearchForm(),
         'recent_movies': recent_movies,
-        'recent_people': recent_people
+        'recent_people': recent_people,
+        'genres': genres
     }
     return render(request, 'home/home.html', ctx)
 

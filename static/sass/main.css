@@ -1,4 +1,4 @@
-.detail-container .detail-body .cast-wrapper .cast-image, .detail-container .detail-body .filmography-timeline .filmography-image, .detail-container .detail-header .detail-poster img, .movie-container .poster img {
+.detail-container .detail-body .cast-wrapper .cast-image, .detail-container .detail-body .filmography-timeline .filmography-image, .detail-container .detail-header .detail-poster img, .genre-tag, .movie-container .poster img {
   border-radius: 0.25em;
 }
 
@@ -38,6 +38,7 @@ body {
 
 a {
   text-decoration: none;
+  color: #161616;
 }
 
 img.square-crop {
@@ -149,6 +150,13 @@ img.square-crop {
 .pagination {
   margin: 0.5em auto;
   text-align: center;
+}
+
+.genre-tag {
+  margin: 0.1em;
+  padding: 0.25em;
+  background-color: #a8a8a8;
+  color: white;
 }
 
 .back-link {

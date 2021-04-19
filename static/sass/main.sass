@@ -1,4 +1,5 @@
 $black: #161616
+$light-grey: #a8a8a8
 
 %box-shadow
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2)
@@ -33,6 +34,7 @@ body
   @extend %macos-style-scrollbar
 a
   text-decoration: none
+  color: $black
 
 img.square-crop
   margin: -8px 0 0 0
@@ -138,6 +140,13 @@ img.square-crop
 .pagination
   margin: .5em auto
   text-align: center
+
+.genre-tag
+  margin: .1em
+  padding: 0.25em
+  background-color: $light-grey
+  color: white
+  @extend %border-radius
 
 .back-link
   margin: 0
