@@ -46,7 +46,7 @@
             <div class="detail-body">
                 {% if person.get_movie_credits %}
                 <div class="filmography-timeline">
-                    <h3>Filmography</h3>
+                    <h3>Filmography <span>{{ person.get_movie_credits|length }}</span></h3>
 
                     {% for movie_credit in person.get_movie_credits %}
                     <div class="filmography-row">

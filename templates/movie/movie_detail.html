@@ -30,6 +30,14 @@
                         </div>
                     </div>
 
+                    {% if movie.genres %}
+                    <div class="detail-header-tags">
+                        {% for genre in movie.genres.all %}
+                            {% include 'genre/genre_container.html' %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
                     <div class="detail-header-overview">
                         <h4>Overview</h4>
                         <p>{{ movie.overview }}</p>
@@ -40,7 +48,7 @@
             <div class="detail-body">
                 {% if movie.get_cast %}
                 <div class="cast-wrapper">
-                    <h3>Cast</h3>
+                    <h3>Cast <span>{{ movie.get_cast|length }}</span></h3>
 
                     {% for movie_credit in movie.get_cast %}
                     <div class="cast-row" data-id="{{ movie_credit.id }}">

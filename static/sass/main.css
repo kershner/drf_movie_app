@@ -27,7 +27,7 @@ body::-webkit-scrollbar-thumb:hover, .detail-container .detail-body::-webkit-scr
 
 .detail-container .detail-body, .main-widget .widget-body.list-view, .main-widget .widget-body.search-results {
   overflow-y: auto;
-  max-height: 50em;
+  max-height: 60em;
 }
 
 body {
@@ -154,6 +154,8 @@ img.square-crop {
 
 .genre-tag {
   margin: 0.1em;
+  margin-right: 0.2em;
+  margin-left: 0;
   padding: 0.25em;
   background-color: #a8a8a8;
   color: white;
@@ -180,6 +182,9 @@ img.square-crop {
 .detail-container .detail-header .detail-header-info {
   padding: 0 0.5em;
   flex-shrink: 2;
+}
+.detail-container .detail-header .detail-header-info .detail-header-tags {
+  display: flex;
 }
 .detail-container .detail-header .detail-header-info .detail-header-title .detail-header-title-row {
   display: flex;
