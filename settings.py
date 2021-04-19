@@ -136,6 +136,10 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'movie_app.pagination.StandardResultsSetPagination'
+}
+
 # TMDB
 BASE_TMDB_API_URL = 'https://api.themoviedb.org/3/'
 BASE_TMDB_IMAGE_URL = 'https://image.tmdb.org/t/p/'
