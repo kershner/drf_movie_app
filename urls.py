@@ -17,6 +17,7 @@ api_router.register(r'genres', genre_views.GenreViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_views.home, name='home'),
+    path('data/', main_views.about_the_data, name='about_the_data'),
     path('search/', main_views.search_results, name='search_results'),
     path('api/', include(api_router.urls)),
     path('movies/', movie_views.MovieListView.as_view(), name='movies'),

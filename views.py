@@ -5,16 +5,16 @@ from movie_app.apps.genre.models import Genre
 from movie_app.forms import SearchForm
 from django.db.models import Count
 from django.shortcuts import render
-from movie_app import util
 import random
 
 
 def home(request):
     num_results = 20
     movie_pks = Movie.objects.values_list('pk', flat=True)
-    popular_movies = Movie.objects.filter(id__in=util.get_random_pks(pks=movie_pks,
-                                                                    limit=len(movie_pks))).all()[:num_results]
-    people_pks = Person.objects.values_list('pk', flat=True)
+    random_movie_pks = [random.choice(movie_pks) for num in range(num_results)]
+    popular_movies = Movie.objects.filter(tmdb_image_path__isnull=False).filter(id__in=random_movie_pks).all()
+
+    people_pks = Person.objects.values_list('pk', flat=True).order_by('-popularity')[:1000]
     random_people_pks = [random.choice(people_pks) for num in range(num_results)]
     popular_people = Person.objects.filter(tmdb_image_path__isnull=False).filter(id__in=random_people_pks).all().order_by('-popularity')
 
@@ -52,3 +52,13 @@ def search_results(request):
             return render(request, 'home/search_results.html', ctx)
 
     return render(request, 'home/search_results.html')
+
+
+def about_the_data(request):
+    ctx = {
+        'total_movies': Movie.objects.count(),
+        'total_people': Person.objects.count(),
+        'total_genres': Genre.objects.count(),
+        'total_movie_credits': MovieCredit.objects.count()
+    }
+    return render(request, 'home/data.html', ctx)

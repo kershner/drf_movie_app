@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}- About the Data{% endblock %}
+
+{% block main_content %}
+<div class="main-widget">
+    <div class="widget-body">
+        <div class="about-data-wrapper">
+            <h1>About the Data...</h1>
+            <p>This app uses free, open source data from <a href="https://www.themoviedb.org/">The Movie Database</a>.</p>
+            <p>
+                Since this is just a toy/exploratory app, the methodology used for pulling data wasn't as straightforward as
+                simply pulling every single object from TMDB's database, which would take quite a bit of time and storage.
+            </p>
+            <p>
+                I started with 1000 movies from the <strong>/popular</strong> TMDB endpoint, and crawled through
+                each movie's cast to begin populating people.
+            </p>
+            <p>
+                I then needed to populate people's filmographies, but pulling every single movie for every
+                single person seemed a bit extreme, given my time constraints.  I ended up sorting my list of people by
+                <strong>popularity</strong>, a handy attribute available from the TMDB API, and pulling filmographies for
+                the top 1000 most popular people in my database.
+            </p>
+
+            <ul>
+                <li>Total Movies: <strong>{{ total_movies }}</strong></li>
+                <li>Total People: <strong>{{ total_people }}</strong></li>
+                <li>Total Movie Credits: <strong>{{ total_movie_credits }}</strong></li>
+                <li>Total Genres: <strong>{{ total_movies }}</strong></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

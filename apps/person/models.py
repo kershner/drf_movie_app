@@ -37,7 +37,7 @@ class Person(models.Model):
         return static(settings.NO_IMAGE_FILENAME)
 
     def get_movie_credits(self):
-        movie_credits = MovieCredit.objects.filter(person=self).order_by('-release_date').all()
+        movie_credits = MovieCredit.objects.filter(person=self, release_date__isnull=False).order_by('-release_date').all()
         return movie_credits
 
 
