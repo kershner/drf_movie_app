@@ -4,11 +4,13 @@
 
 {% block main_content %}
 <div class="main-widget">
-    <h3 class="widget-title">All Movies</h3>
-    <div class="widget-body list-view">
+    <h3 class="widget-title">All Movies <span>{{ page_obj.paginator.count }}</span></h3>
+    <div class="widget-body">
     {% for movie in movie_list %}
         {% include 'movie/movie_container.html' %}
     {% endfor %}
     </div>
+
+    {% include 'components/pagination.html' %}
 </div>
 {% endblock %}

@@ -4,8 +4,8 @@
 
 {% block main_content %}
 <div class="main-widget">
-    <h3 class="widget-title">All People</h3>
-    <div class="widget-body list-view">
+    <h3 class="widget-title">All People <span>{{ page_obj.paginator.count }}</span></h3>
+    <div class="widget-body">
     {% for person in person_list %}
         {% include 'person/person_container.html' %}
     {% endfor %}

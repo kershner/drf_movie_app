@@ -101,7 +101,7 @@ img.square-crop
       font-size: 1.5em
 
       &:hover
-        color: darken($accent-color, 10)
+        color: darken($accent-color, 10) !important
 
 .body
   margin: 0 auto
@@ -163,10 +163,9 @@ img.square-crop
     display: flex
     flex-wrap: wrap
     flex: 1
-    justify-content: space-between
+    justify-content: flex-start
 
     &.search-results
-      justify-content: flex-start
       @extend %fixed-medium-size-scrollable
     &.list-view
       @extend %fixed-medium-size-scrollable
@@ -184,6 +183,7 @@ img.square-crop
     padding: 0.5em 0.75em
     font-weight: 400
     color: $black
+    width: 20em
     @extend %thin-light-border
     @extend %border-radius
     &::placeholder
@@ -238,6 +238,9 @@ img.square-crop
 .pagination
   margin: .5em auto
   text-align: center
+  .page-links
+    a
+      @extend %generic-button
 
 /* Tags */
 .genre-tag
@@ -308,8 +311,6 @@ img.square-crop
         margin: 0.25em auto
 
   .detail-body
-    @extend %fixed-medium-size-scrollable
-
     h3
       margin: .25em auto
 

@@ -5,8 +5,8 @@
 
 {% block main_content %}
 <div class="main-widget">
-    <h3 class="widget-title">{{ genre.name }} Movies  <span>{{ movie_list|length }}</span></h3>
-    <div class="widget-body search-results">
+    <h3 class="widget-title">{{ genre.name }} Movies  <span>{{ page_obj.paginator.count }}</span></h3>
+    <div class="widget-body">
     {% for movie in movie_list %}
         {% include 'movie/movie_container.html' %}
     {% endfor %}

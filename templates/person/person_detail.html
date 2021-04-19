@@ -44,11 +44,11 @@
             </div>
 
             <div class="detail-body">
-                {% if person.get_movie_credits %}
+                {% if filmography %}
                 <div class="filmography-timeline">
-                    <h3>Filmography <span>{{ person.get_movie_credits|length }}</span></h3>
+                    <h3>Filmography <span>{{ page_obj.paginator.count }}</span></h3>
 
-                    {% for movie_credit in person.get_movie_credits %}
+                    {% for movie_credit in filmography %}
                     <div class="filmography-row">
                         {% if movie_credit.movie %}
                         <a href="{% url 'movie' pk=movie_credit.movie.id %}">
@@ -76,6 +76,8 @@
                     </div>
                     {% endfor %}
                 </div>
+
+                {% include 'components/pagination.html' %}
                 {% endif %}
             </div>
         </div>

@@ -46,11 +46,11 @@
             </div>
 
             <div class="detail-body">
-                {% if movie.get_cast %}
+                {% if cast %}
                 <div class="cast-wrapper">
-                    <h3>Cast <span>{{ movie.get_cast|length }}</span></h3>
+                    <h3>Cast <span>{{ page_obj.paginator.count }}</span></h3>
 
-                    {% for movie_credit in movie.get_cast %}
+                    {% for movie_credit in cast %}
                     <div class="cast-row" data-id="{{ movie_credit.id }}">
                         {% if movie_credit.person %}
                         <a href="{% url 'person' pk=movie_credit.person.id %}">
@@ -79,6 +79,8 @@
                     </div>
                     {% endfor %}
                 </div>
+
+                {% include 'components/pagination.html' %}
                 {% endif %}
             </div>
         </div>
