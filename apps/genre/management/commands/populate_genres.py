@@ -8,10 +8,10 @@ class Command(BaseCommand):
     help = 'Pulls data from TMDB and inserts into DB'
 
     def handle(self, *args, **options):
-        movies = Movie.objects.order_by('id').all()
-        total_movies = len(movies)
+        movies_without_genres = Movie.objects.filter(genres__isnull=True).order_by('id').all()
+        total_movies = len(movies_without_genres)
         movie_count = 1
-        for movie in movies:
+        for movie in movies_without_genres:
             print('- Requesting movie genres for: {} - {} of {}...'.format(movie, movie_count, total_movies))
             movie_count += 1
 
