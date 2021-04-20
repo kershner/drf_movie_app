@@ -44,7 +44,7 @@ class Movie(models.Model):
         return movie_credits
 
     def get_budget_display(self):
-        locale.setlocale(locale.LC_ALL, '')
+        locale.setlocale(locale.LC_ALL, 'en_CA.UTF-8')
         return locale.currency(self.budget, grouping=True).split('.')[0]
 
 
